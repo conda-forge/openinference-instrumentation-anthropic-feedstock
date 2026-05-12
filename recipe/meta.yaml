@@ -1,5 +1,5 @@
 {% set name = "openinference-instrumentation-anthropic" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openinference_instrumentation_anthropic-{{ version }}.tar.gz
-  sha256: 7e2d2d8ea263a2c6fd77be78d65d89619a914e3ffe1c8de2980ca2cf4590be65
+  sha256: fc78ac8d7078dc24ee72851c598b22780e4c7a6d66f627c2dd94c5402e4a6ce3
 
 build:
   noarch: python
