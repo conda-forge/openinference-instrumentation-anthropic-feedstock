@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: openinference-instrumentation-anthropic
+  version: "2.1.6"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/openinference_instrumentation_anthropic-${{ version }}.tar.gz
+  sha256: fc52388d57b5390a55dffcfc5d8e11cf1b4e9e5dbb6bda920d42681661728b8a
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - opentelemetry-api
+    - opentelemetry-instrumentation
+    - opentelemetry-semantic-conventions
+    - openinference-instrumentation >=0.1.15
+    - openinference-semantic-conventions
+    - wrapt
+    - typing-extensions
+
+tests:
+  - python:
+      imports:
+        - openinference.instrumentation.anthropic
+      pip_check: true
+      python_version:
+        - '*'
+        - ${{ python_min }}.*
+
+about:
+  summary: OpenInference Anthropic Instrumentation
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/Arize-ai/openinference
+
+extra:
+  recipe-maintainers:
+    - michaelschiff
+    - mikeldking
+    - RogerHYang
+    - axiomofjoy
+    - anticorrelator
