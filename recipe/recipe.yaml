@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: openinference-instrumentation-anthropic
-  version: "2.1.6"
+  version: "3.3.9"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/openinference_instrumentation_anthropic-${{ version }}.tar.gz
-  sha256: fc52388d57b5390a55dffcfc5d8e11cf1b4e9e5dbb6bda920d42681661728b8a
+  sha256: e8c70376d281563e372925e7928c03c4f71e085f6469828a0fad00ce11442a17
 
 build:
   number: 0
@@ -25,11 +25,10 @@ requirements:
   run:
     - python >=${{ python_min }}
     - opentelemetry-api
-    - opentelemetry-instrumentation
-    - opentelemetry-semantic-conventions
+    - opentelemetry-instrumentation >=0.1.82
+    - opentelemetry-semantic-conventions >=0.1.46
     - openinference-instrumentation >=0.1.15
     - openinference-semantic-conventions
-    - wrapt
     - typing-extensions
 
 tests:
